@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-int fibonacci(int);
-void PrintFibonacci(int);
+int fib(int);
 
 int main(){
   int n;
@@ -9,24 +8,16 @@ int main(){
   printf("n: ");
   scanf("%i", &n);
 
-  PrintFibonacci(n);
+  printf("Sequência de Fibonacci:\n");
+  printf("%iº termo: %i\n", n, fib(n));
 
   return 0;
 }
 
-int fibonacci(x){
-  int fat, fat1=1, fat2=0;
-  for(int i=0; i<x; i++){
-    fat = fat1 + fat2;
-    fat1 = fat2;
-    fat2 = fat;
-  }
-  return fat;
-}
-
-void PrintFibonacci(x){
-  for(int i=0; i<x; i++){
-    printf("%i\t", fibonacci(i));
-  }
-  printf("\n");
+int fib(int n){
+  if(n==0)
+    return 0;
+  else if(n==1 || n==2)
+    return 1;
+  return fib(n-1) + fib(n-2);
 }
